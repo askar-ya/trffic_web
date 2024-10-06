@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="{% static '/css/user_profile.css' %}" rel="stylesheet">
+
+  <title>Title</title>
+
+  <script src="https://unpkg.com/@bitjson/qr-code/dist/qr-code.js"></script>
+</head>
+<body>
+  <div class="content">
+
+    <qr-code
+      id="qr"
+      class="qr-code"
+      contents="{{user_id}}"
+      module-color="#fab1f7"
+      position-ring-color="#f57df1"
+      position-center-color="#f57df1">
+      <div slot="icon" class="icon">
+      </div>
+    </qr-code>
+
+  </div>
+  <script>
+  document.getElementById('qr').addEventListener('codeRendered', () => {
+    document.getElementById('qr').animateQRCode('MaterializeIn');
+  });
+</script>
+
+</body>
+</html>
